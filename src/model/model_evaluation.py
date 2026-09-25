@@ -8,8 +8,8 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_a
 import logging
 import mlflow
 import mlflow.sklearn
-import dagshub
 import os
+import dagshub
 
 mlflow.set_tracking_uri('https://dagshub.com/sahilshore/mlops-mini-project.mlflow')
 dagshub.init(repo_owner='sahilshore', repo_name='mlops-mini-project', mlflow=True)
