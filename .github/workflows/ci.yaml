@@ -61,9 +61,13 @@ jobs:
           docker build -t campusx_ecr .
 
       - name: Tag Docker image
+        env:
+          AWS_ECR_REGISTRY: 072718160444.dkr.ecr.ap-south-1.amazonaws.com
         run: |
           docker tag campusx_ecr:latest $AWS_ECR_REGISTRY/campusx_ecr:latest
       - name: Push Docker image to AWS ECR
+        env:
+          AWS_ECR_REGISTRY: 072718160444.dkr.ecr.ap-south-1.amazonaws.com
         run: |
           docker push $AWS_ECR_REGISTRY/campusx_ecr:latest
 
