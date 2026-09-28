@@ -85,7 +85,7 @@ jobs:
             aws configure set default.region ap-south-1
             aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 072718160444.dkr.ecr.ap-south-1.amazonaws.com
             docker pull 072718160444.dkr.ecr.ap-south-1.amazonaws.com/campusx_ecr:latest
-            docker stop my-app || true
-            docker rm my-app || true
+            docker stop campusx-app || true
+            docker rm campusx-app || true
             docker run -d -p 80:5000 -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} --name campusx-app 072718160444.dkr.ecr.ap-south-1.amazonaws.com/campusx_ecr:latest
 
